@@ -1,18 +1,15 @@
+# Enter your code here. Read input from STDIN. Print output to STDOUT
 if __name__ == '__main__':
-    n = int(input())
-    
-    list_of_string = []
+    n = int(input().strip())
+    counter = {}
+    words = []
     for i in range(n):
-        list_of_string.append(input())
-    
-    print(len(set(list_of_string)))
-    
-    _t = {}
-    
-    for i in list_of_string:
-        if i in list_of_string and i in _t:
-            _t[i] += 1
-        elif i in list_of_string:
-            _t[i] = 1
-            
-    print(' '.join([str(i) for i in _t.values()]))
+      word = input().strip()
+      if word in counter:
+        counter[word] += 1
+      else:
+        counter[word] = 1
+        words.append(word)
+        
+    print (len(words))
+    print (' '.join([str(counter[word]) for word in words]))
